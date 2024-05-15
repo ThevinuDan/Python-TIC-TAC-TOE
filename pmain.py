@@ -44,10 +44,13 @@ def check_win(num):
       return True
     else:
       return False
+
 turn = 0
-while turn <= 9:
+
+while turn < 9:
   print('Player 1 input row and column')
   p1_position = int(input("Enter position number (1 through 9): ")) - 1
+  turn += 1
   if board[p1_position] == 0:
     board[p1_position] = 1
   elif board[p1_position] == 2:
@@ -55,13 +58,16 @@ while turn <= 9:
   else:
     print('invalid place number or place already taken')
   print_board()
-  turn += 1
+  if turn == 9:
+    print('Draw')
+    break
   player_1_stat = check_win(1)
   if player_1_stat == True:
     print('player 1 wins')
     break
   print('Player 2 input row and column')
   p2_position = int(input("Enter position number (1 through 9): ")) - 1
+  turn += 1
   if board[p2_position] == 0:
     board[p2_position] = 2
   elif board[p2_position] == 1:
@@ -69,11 +75,8 @@ while turn <= 9:
   else:
     print('invalid place number or place already taken')
   print_board()
-  turn += 1
+  print(turn)
   player_2_stat = check_win(2)
   if player_2_stat == True:
     print('player 2 wins')
     break
-
-
-    
