@@ -1,10 +1,40 @@
+print(''' 
+*******************************
+*   Welcome to Tic-Tac-Toe!   *
+*                             *
+*    Let the Battle Begin!    *
+*******************************
+-------------------------------
+Rules:
+    Player 1 is X, Player 2 is O.
+    Enter the number corresponding to the positions shown on the board below:
+
+ ______________
+|  1 |  2 |  3 |
+|____|____|____|
+|  4 |  5 |  6 |
+|____|____|____|  
+|  7 |  8 |  9 |
+|____|____|____|        
+
+Example: If you want to place your symbol in the top-right corner, enter "3".
+
+How to Win:
+    To win, you must get three of your symbols in a row, column, or diagonal.
+      
+Draw:
+    If all positions on the board are filled and no player has won, the game ends in a draw.
+-------------------------------
+*******************************
+       Enjoy the game!
+*******************************
+''')
+  
 board = [
   0,0,0,
   0,0,0,
   0,0,0
   ]
-
-print('Welcome To Tic Tac Toe Terminal')
 
 def print_board():
   display_positon = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
@@ -23,8 +53,9 @@ def print_board():
 |  {} |  {} |  {} |
 |____|____|____|        
 
-'''.format(*display_positon))
-    
+'''.format(*display_positon))    
+  
+
 def check_win(num):
     if board[0] == num and board[1] == num and board[2] == num:
       return True
@@ -80,3 +111,4 @@ while turn < 9:
   if player_2_stat == True:
     print('player 2 wins')
     break
+  
