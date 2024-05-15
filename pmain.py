@@ -79,36 +79,48 @@ def check_win(num):
 turn = 0
 
 while turn < 9:
-  print('Player 1 input row and column')
-  p1_position = int(input("Enter position number (1 through 9): ")) - 1
-  turn += 1
-  if board[p1_position] == 0:
-    board[p1_position] = 1
-  elif board[p1_position] == 2:
-    print('player 2 has already placed their mark here')
-  else:
-    print('invalid place number or place already taken')
-  print_board()
-  if turn == 9:
-    print('Draw')
-    break
-  player_1_stat = check_win(1)
-  if player_1_stat == True:
-    print('player 1 wins')
-    break
-  print('Player 2 input row and column')
-  p2_position = int(input("Enter position number (1 through 9): ")) - 1
-  turn += 1
-  if board[p2_position] == 0:
-    board[p2_position] = 2
-  elif board[p2_position] == 1:
-    print('player 1 has already placed their mark here')
-  else:
-    print('invalid place number or place already taken')
-  print_board()
-  print(turn)
-  player_2_stat = check_win(2)
-  if player_2_stat == True:
-    print('player 2 wins')
-    break
-  
+    while True:
+        try:
+            p1_position = int(input("Player 1 enter position number (1 through 9): ")) - 1
+            if 0 <= p1_position <= 8 and board[p1_position] == 0:
+                board[p1_position] = 1
+                break
+            elif p1_position < 0 or p1_position > 8:
+                print('Invalid position number. Please enter a number between 1 and 9.')
+            else:
+                print('Position already taken. Please choose another position.')
+        except ValueError:
+            print('Invalid input. Please enter a number.')
+
+    turn += 1
+    print_board()
+
+    if turn == 9:
+        print('Draw')
+        break
+
+    player_1_stat = check_win(1)
+    if player_1_stat:
+        print('Player 1 WINS')
+        break
+
+    while True:
+        try:
+            p2_position = int(input("Player 2 enter position number (1 through 9): ")) - 1
+            if 0 <= p2_position <= 8 and board[p2_position] == 0:
+                board[p2_position] = 2
+                break
+            elif p2_position < 0 or p2_position > 8:
+                print('Invalid position number. Please enter a number between 1 and 9.')
+            else:
+                print('Position already taken. Please choose another position.')
+        except ValueError:
+            print('Invalid input. Please enter a number.')
+
+    turn += 1
+    print_board()
+
+    player_2_stat = check_win(2)
+    if player_2_stat:
+        print('Player 2 WINS')
+        break
