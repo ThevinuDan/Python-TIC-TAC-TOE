@@ -1,3 +1,4 @@
+# Prints the welcome message with game rules.
 print(''' 
 *******************************
 *   Welcome to Tic-Tac-Toe!   *
@@ -30,12 +31,14 @@ Draw:
 *******************************
 ''')
   
+# Initialize the board with empty positions.
 board = [
   0,0,0,
   0,0,0,
   0,0,0
   ]
 
+# Function to print the current state of the board. for the ease of players
 def print_board():
   display_positon = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
   for i in range(9):
@@ -56,6 +59,7 @@ def print_board():
 '''.format(*display_positon))    
   
 
+# Function to check if a player has won.
 def check_win(num):
     if board[0] == num and board[1] == num and board[2] == num:
       return True
@@ -76,9 +80,12 @@ def check_win(num):
     else:
       return False
 
+# Initialize the turn counter.
 turn = 0
 
+# Main game loop.
 while turn < 9:
+    # Player 1's turn.
     while True:
         try:
             p1_position = int(input("Player 1 enter position number (1 through 9): ")) - 1
@@ -95,6 +102,7 @@ while turn < 9:
     turn += 1
     print_board()
 
+    # Check if player 1 is the winner or if it's a draw.
     if turn == 9:
         print('Draw')
         break
@@ -104,6 +112,7 @@ while turn < 9:
         print('Player 1 WINS')
         break
 
+    # Player 2's turn.
     while True:
         try:
             p2_position = int(input("Player 2 enter position number (1 through 9): ")) - 1
@@ -120,6 +129,7 @@ while turn < 9:
     turn += 1
     print_board()
 
+    # Check if player 2 is the winner.
     player_2_stat = check_win(2)
     if player_2_stat:
         print('Player 2 WINS')
