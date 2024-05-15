@@ -1,5 +1,5 @@
 Welcome to Tic-Tac-Toe! This is a simple Python implementation of the classic Tic-Tac-Toe game for two players.
-
+Exolanation blog post https://dev.to/thevinudan/building-a-tic-tac-toe-game-in-python-a-step-by-step-guide-54ko
 ## How to Play
 
 1. **Setup**: Player 1 is represented by 'X' and Player 2 by 'O'. The game is played on a 3x3 grid.
